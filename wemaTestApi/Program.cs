@@ -1,8 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using Serilog;
+using wemaTestApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var ConnString = builder.Configuration.GetConnectionString("AppDbConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ConnString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
