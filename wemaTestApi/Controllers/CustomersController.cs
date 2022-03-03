@@ -113,7 +113,7 @@ namespace wemaTestApi.Controllers
                 var response = await _client.ExecuteGetAsync(request);
                 if (!response.IsSuccessful)
                 {
-                    return BadRequest(response.StatusCode);
+                    return BadRequest(response.ErrorMessage);
                 }
                //var userList = JsonSerializer.Deserialize<banklist>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 return Ok(response.Content);
