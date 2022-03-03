@@ -107,6 +107,7 @@ namespace wemaTestApi.Controllers
 
        
             [HttpGet]
+            [Route("getBanks")]
             public async Task<IActionResult> GetUserList()
             {
                 var request = new RestRequest("api/Shared/GetAllBanks");
